@@ -1,0 +1,24 @@
+<div class="text-center">
+  <div class="headerContainer" [ngStyle]="{'background-color': z}">
+    <div>
+      <h2 [ngStyle]="{'font-family':y, 'color':x}">
+        <span>-Me da una pizza<br></span>
+        <span>-¿Cómo la quiere?<br></span>
+        <span>-Demasiado, <b>más que a nadie en el mundo</b> cada noche pienso en ella y lloro hasta quedarme dormido<br></span>
+      </h2>
+    </div>
+    <div>
+      <button class="btn btn-success btnHeader" (click)="changeBackground()">
+        Cambiar Background
+      </button>
+    </div>
+    <div style="margin-top: 5px;">
+      <button class="btn btn-primary btnHeader" (click)="changeFontFamily()">
+        Cambiar Tipo de Fuente
+      </button>
+      <button class="btn btn-warning btnHeader" (click)="changeColor()">
+        Cambiar Color
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,177 @@
+<section
+  class="text-center"
+  style="
+    background: url('http://columnazero.com/wp-content/uploads/2013/03/fondo-de-pantalla-bandera-de-italia.jpg')
+      no-repeat;
+    background-size: cover;
+  "
+>
+  <div class="contenedor" id="pizzasQuesos">
+    <h1 class="text-info">PIZZAS DE QUESOS</h1>
+    <table class="table table-dark">
+      <thead class="text-warning">
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Ingredientes</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Imagen</th>
+        </tr>
+      </thead>
+      <tbody class="text-white">
+        <tr *ngFor="let pizza of pizzasQuesos">
+          <td>{{ pizza.nombre }}</td>
+          <td>{{ pizza.ingredientes }}</td>
+          <td>{{ pizza.precio | currency : "EUR" : true }}</td>
+          <td><img class="img-fluid" [src]="pizza.url" [alt]="pizza.alt" /></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="contenedor" id="pizzaBbq">
+    <h1 class="text-info">PIZZAS BBQ</h1>
+    <table class="table table-dark">
+      <thead class="text-warning">
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Ingredientes</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Imagen</th>
+        </tr>
+      </thead>
+      <tbody class="text-white">
+        <tr *ngFor="let pizza of pizzasBbq">
+          <td>{{ pizza.nombre }}</td>
+          <td>{{ pizza.ingredientes }}</td>
+          <td>{{ pizza.precio | currency : "EUR" : true }}</td>
+          <td><img class="img-fluid" [src]="pizza.url" [alt]="pizza.alt" /></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="contenedor" id="pizzasEspeciales">
+    <h1 class="text-info">PIZZAS ESPECIALES</h1>
+    <table class="table table-dark">
+      <thead class="text-warning">
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Ingredientes</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Imagen</th>
+        </tr>
+      </thead>
+      <tbody class="text-white">
+        <tr *ngFor="let pizza of pizzasEspeciales">
+          <td>{{ pizza.nombre }}</td>
+          <td>{{ pizza.ingredientes }}</td>
+          <td>{{ pizza.precio | currency : "EUR" : true }}</td>
+          <td><img class="img-fluid" [src]="pizza.url" [alt]="pizza.alt" /></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="bg-warning">
+    <h1 class="text-center">OTROS</h1>
+    <button
+      class="btn btn-danger"
+      (click)="option = 'entrantes'"
+      style="margin: 2%"
+    >
+      Entrantes
+    </button>
+    <button
+      class="btn btn-danger"
+      (click)="option = 'salsas'"
+      style="margin: 2%"
+    >
+      Salsas
+    </button>
+    <button
+      class="btn btn-danger"
+      (click)="option = 'postres'"
+      style="margin: 2%"
+    >
+      Postres
+    </button>
+  </div>
+
+<div id="otros">
+  <div [ngSwitch]="option">
+    <div *ngSwitchCase="'entrantes'" class="contenedor">
+      <h2 class="text-center">ENTRANTES</h2>
+      <table class="table table-dark">
+        <thead class="text-warning">
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Imagen</th>
+          </tr>
+        </thead>
+        <tbody class="text-white">
+          <tr *ngFor="let entrante of entrantes">
+            <td>{{ entrante.nombre }}</td>
+            <td>{{ entrante.precio | currency : "EUR" : true }}</td>
+            <td>
+              <img
+                class="img-fluid"
+                [src]="entrante.url"
+                [alt]="entrante.alt"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngSwitchCase="'salsas'" class="contenedor">
+      <h2>SALSAS</h2>
+      <table class="table table-dark">
+        <thead class="text-warning">
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Imagen</th>
+          </tr>
+        </thead>
+        <tbody class="text-white">
+          <tr *ngFor="let salsa of salsas">
+            <td>{{ salsa.nombre }}</td>
+            <td>{{ salsa.precio | currency : "EUR" : true }}</td>
+            <td>
+              <img class="img-fluid" [src]="salsa.url" [alt]="salsa.alt" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngSwitchCase="'postres'" class="contenedor">
+      <h2>BEBIDAS</h2>
+      <table class="table table-dark">
+        <thead class="text-warning">
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Imagen</th>
+          </tr>
+        </thead>
+        <tbody class="text-white">
+          <tr *ngFor="let postre of postres">
+            <td>{{ postre.nombre }}</td>
+            <td>{{ postre.precio | currency : "EUR" : true }}</td>
+            <td>
+              <img class="img-fluid" [src]="postre.url" [alt]="postre.alt" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngSwitchDefault>
+      <p>Selecciona una categoría para ver las opciones.</p>
+    </div>
+  </div>
+</div>
+</section>
